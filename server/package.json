@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "fs": "0.0.1-security",
     "js-crawler": "^0.3.21",
     "node-html-parser": "^1.1.15",
     "nodemon": "^1.19.1"

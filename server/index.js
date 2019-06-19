@@ -1,7 +1,13 @@
+//CRAWLER AND PARSER
 var Crawler = require("js-crawler");
 var Parser = require("node-html-parser");
 var fs = require("fs");
+//SERVER SIDE
+const express = require("express");
+const app = express();
+const port = process.env.PORT || 5000;
 
+//SAVING DATA
 var data = {};
 
 new Crawler().configure({ depth: 2 }).crawl(
@@ -41,3 +47,11 @@ new Crawler().configure({ depth: 2 }).crawl(
     });
   }
 );
+
+app.get('/express_backend', (req, res) => {
+  console.log("Zatrazio sam ");
+  res.send({ express: data });
+
+});
+
+app.listen(port, () => console.log(`Listening on port ${port}`));

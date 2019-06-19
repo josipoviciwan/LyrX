@@ -1,14 +1,26 @@
 import React from "react";
-import Navigation from "./components/navigation";
+//ROUTER
+import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
+
+import {
+  AppLayout,
+  GeneralError,
+  Songs,
+  Authors,
+  History
+} from "./components/";
 
 const App = ({ children }) => (
-  <div>
-    <header>
-      <Navigation />
-    </header>
-    <main>{children}</main>
-    <footer>  An apropriate footer sentence with a copyright sign &copy; </footer>
-  </div>
+  <Router>
+    <AppLayout>
+      <Switch>
+        <Route exact path="/" component={Songs} />
+        <Route exact path="/authors" component={Authors} />
+        <Route exact path="/history" component={History} />
+        <Route component={GeneralError} />
+      </Switch>
+    </AppLayout>
+  </Router>
 );
 
 export default App;

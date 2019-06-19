@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.17.1",
     "fs": "0.0.1-security",
     "js-crawler": "^0.3.21",
     "node-html-parser": "^1.1.15",

@@ -1,45 +1,31 @@
+//MUST HAVES
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-
+//ROUTER
+import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
+//STYLES
 import * as serviceWorker from "./serviceWorker";
-
 //COMPONENTS
-
+import App from "./App";
 import Songs from "./components/songs";
+import GeneralError from "./components/generalerror";
 import Authors from "./components/authors";
 import History from "./components/history";
-
-//ROUTING
-import { Route, NavLink, BrowserRouter as Router } from "react-router-dom";
-
+//ROUTER OUTLET
 const routing = (
   <Router>
-    <nav>
-      <ul className="navList">
-        <li>
-          <NavLink activeClassName="is-active" exact={true} to="/">
-            Songs
-          </NavLink>
-        </li>
-        <li>
-          <NavLink activeClassName="is-active" to="/authors">
-            Authors
-          </NavLink>
-        </li>
-        <li>
-          <NavLink activeClassName="is-active" to="/history">
-            History
-          </NavLink>
-        </li>
-      </ul>
-
-      <Route exact path="/" component={Songs} />
-      <Route path="/authors" component={Authors} />
-      <Route path="/history" component={History} />
-    </nav>
+    <App>
+      <Switch>
+        <Route exact path="/" component={Songs} />
+        <Route exact path="/authors" component={Authors} />
+        <Route exact path="/history" component={History} />
+        <Route component={GeneralError} />
+      </Switch>
+    </App>
   </Router>
 );
+
 ReactDOM.render(routing, document.getElementById("root"));
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

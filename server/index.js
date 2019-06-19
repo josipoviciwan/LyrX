@@ -31,7 +31,9 @@ new Crawler().configure({ depth: 2 }).crawl(
   null,
   function onAllFinished(crawledUrls) {
     console.log("All crawling finished");
-    fs.writeFile("./test", JSON.stringify(data), function(err) {
+    fs.writeFile("../client/src/data.json", JSON.stringify(data), function(
+      err
+    ) {
       if (err) {
         return console.log(err);
       }

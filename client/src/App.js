@@ -1,11 +1,14 @@
 import React from "react";
-class App extends React.Component {
-  render() {
-    return (
-      <div>
-        <h1>Home</h1>
-      </div>
-    );
-  }
-}
+import Navigation from "./components/navigation";
+
+const App = ({ children }) => (
+  <div>
+    <header>
+      <Navigation />
+    </header>
+    <main>{children}</main>
+    <footer>  An apropriate footer sentence with a copyright sign &copy; </footer>
+  </div>
+);
+
 export default App;

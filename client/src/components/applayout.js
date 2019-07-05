@@ -9,9 +9,7 @@ const AppLayout = ({ children }) => (
 
     <main>{children}</main>
 
-    <footer>
-      An apropriate footer sentence with a copyright sign &copy;{" "}
-    </footer>
+    <footer>An apropriate footer sentence with a copyright sign &copy; </footer>
   </div>
 );
 

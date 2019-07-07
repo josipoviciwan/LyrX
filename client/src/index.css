@@ -32,3 +32,6 @@ body{
 .is-active{
   background-color: #111;
 }
+*{
+  white-space:pre-line;
+}

@@ -1,6 +1,5 @@
 /client/node_modules
 /server/node_modules
-
 /fb/functions/node_modules
 /firebase/functions/node_modules
 /LyrX/node_modules

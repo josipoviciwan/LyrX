@@ -10,42 +10,58 @@ import {
 //ROUTER
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 //REDUX
-import { createStore } from "redux";
-import { Provider } from "react-redux";
-import { configureStore } from "./redux/store";
-import { default as Todos } from "./views/Todos";
+import configureStore from "./redux/store";
+import { Provider, connect } from "react-redux";
+import { PersistGate } from "redux-persist/lib/integration/react";
 
-class App extends React.Component {
-  callBackendAPI = async () => {
-    const response = await fetch("/express_backend");
-    const body = await response.json();
+const { store, persistor } = configureStore();
 
-    if (!response.ok) {
-      throw Error(body.message);
-    }
-
-    return body;
+function updateText(text) {
+  return {
+    type: "UPDATE",
+    text
   };
-
-  store = configureStore();
-
-  render() {
-    return (
-      <Provider store={this.store}>
-        <Router>
-          <AppLayout>
-            <Switch>
-              <Route exact path="/" component={Songs} />
-              <Route exact path="/authors" component={Authors} />
-              <Route exact path="/history" component={History} />
-              <Route exact path="/todo" component={Todos} />
-              <Route component={GeneralError} />
-            </Switch>
-          </AppLayout>
-        </Router>
-      </Provider>
-    );
-  } //LVRATI ZADNJU HISTORY
 }
 
-export default App;
+const styles = {
+  fontFamily: "sans-serif",
+  textAlign: "center"
+};
+
+class App extends React.Component {
+  onUpdateText = e => {
+    this.props.dispatch(updateText(e.nativeEvent.target.value));
+  };
+  render() {
+    return (
+      <Provider store={store}>
+        <PersistGate persistor={persistor}>
+          <Router>
+            <AppLayout>
+              <Switch>
+                <Route exact path="/" component={Songs} />
+                <Route exact path="/authors" component={Authors} />
+                <Route exact path="/history" component={History} />
+                <Route component={GeneralError} />
+              </Switch>
+              <div style={styles}>
+                <h2>Start editing to see some magic happen {"\u2728"}</h2>
+                <input value={this.props.text} onChange={this.onUpdateText} />
+                <pre style={{ textAlign: "left" }}>
+                  {JSON.stringify(this.props.foo, undefined, 2)}
+                </pre>
+              </div>
+            </AppLayout>
+          </Router>
+        </PersistGate>
+      </Provider>
+    );
+  }
+}
+
+const mapStateToProps = state => ({
+  text: state.form.text,
+  foo: state.form.foo
+});
+
+export default connect(mapStateToProps)(App);

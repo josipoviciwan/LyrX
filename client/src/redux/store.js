@@ -4,12 +4,11 @@ import storage from "redux-persist/lib/storage";
 import rootReducer from "./persistReducer";
 
 function configureStore(initialState = {}) {
-  
   const reducer = combineReducers({
     auth: () => ({ mock: true }),
-    form: persistReducer(
+    lyrx: persistReducer(
       {
-        key: "form", // key for localStorage key, will be: "persist:form"
+        key: "lyrx", // key for localStorage key, will be: "persist:form"
         storage,
         debug: true,
         blacklist: ["foo"]

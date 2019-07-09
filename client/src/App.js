@@ -1,8 +1,8 @@
 import React from "react";
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 import { connect } from "react-redux";
-import { db } from "./firebase/firebase";
-import firebase from "firebase";
+import { db, rtdb } from "./firebase/firebase";
+import { getPersistActions } from "./redux/persistActions";
 import {
   AppLayout,
   GeneralError,
@@ -11,48 +11,21 @@ import {
   History
 } from "./components/";
 
-function updateText(text) {
-  return {
-    type: "UPDATE",
-    text
-  };
-}
-
-function updateAuthors(data) {
-  return {
-    type: "UPDATE-AUTHORS",
-    polje: [...data]
-  };
-}
-const styles = {
-  fontFamily: "sans-serif",
-  textAlign: "center"
-};
-
 class App extends React.Component {
-  onUpdateText = e => {
-    this.props.dispatch(updateText(e.nativeEvent.target.value));
-  };
-
-  onUpdateAuthor = e => {
-    this.props.dispatch(updateAuthors([1, 2, 3]));
-  };
-
   componentDidMount() {
-    // db.collection("authors")
-    //   .doc("--allAuthors--")
-    //   .onSnapshot(
-    //     {
-    //       // Listen for document metadata changes
-    //       includeMetadataChanges: true
-    //     },
-    //     this.onUpdateAuthor
-    //     // function(doc) {
-    //     //   console.log("SLUSAM ", this);
-    //     //   // ...
-    //     // }
-    //   );
-    console.log("OVO JE BITNO", this.props);
+    const group = db.collection("authors").doc("--allAuthors--");
+    group.get().then(querySnapshot => {
+      const data = querySnapshot.data();
+      this.props.updateAuthors(data.allAuthors);
+    });
+
+    rtdb
+      .ref("/data")
+      .once("value")
+      .then(querySnapshot => {
+        const data = querySnapshot.val();
+        this.props.updateSongsList(data);
+      });
   }
 
   render() {
@@ -65,23 +38,19 @@ class App extends React.Component {
             <Route exact path="/history" component={History} />
             <Route component={GeneralError} />
           </Switch>
-          <div style={styles}>
-            <h2>Start editing to see some magic happen {"\u2728"}</h2>
-            <input value={this.props.text} onChange={this.onUpdateText} onFocus={this.onUpdateAuthor} />
-            <pre style={{ textAlign: "left" }}>
-              {JSON.stringify(this.props, undefined, 4)}
-            </pre>
-          </div>
         </AppLayout>
       </Router>
     );
   }
 }
 
-const mapStateToProps = state => ({
-  text: state.form.text,
-  foo: state.form.foo,
-  polje: state.form.polje
-});
-
-export default connect(mapStateToProps)(App);
+export default connect(
+  null,
+  dispatch => ({
+    updateAuthors: authors =>
+      dispatch(getPersistActions.updateAuthors(authors)),
+    updateSongsList: songsList =>
+      dispatch(getPersistActions.updateSongs(songsList)),
+    addSong: song => dispatch(getPersistActions.addSong(song))
+  })
+)(App);

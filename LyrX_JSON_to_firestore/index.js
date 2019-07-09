@@ -1,31 +1,32 @@
 const firebase = require("firebase");
-// Required for side-effects
-//require("firebase/firestore");
 
-// Initialize Cloud Firestore through Firebase
 firebase.initializeApp({
   apiKey: "AIzaSyBoTxoYqKOpLd4CBzxau1G8tHvQOlF9kGY",
   authDomain: "lyrx-app.firebaseapp.com",
-  projectId: "lyrx-app"
+  databaseURL: "https://lyrx-app.firebaseio.com",
+  projectId: "lyrx-app",
+  storageBucket: "lyrx-app.appspot.com",
+  messagingSenderId: "104087623318",
+  appId: "1:104087623318:web:e69d843653905449"
 });
 
-data = {}
+data = [];
 
-var db = firebase.firestore();
+var db = firebase.database(); //ovjde
 
-let temp = require('./data.json')
+let temp = require("./data.json");
 
+for (let key of Object.keys(temp)) {
+  for (song of Object.keys(temp[key])) data.push({ song, author: key });
+}
 
-db.collection("authors")
-.doc("--allAuthors--")
-.set({ allAuthors: Object.keys(temp) }, { merge: true });
+return firebase
+  .database()
+  .ref("/data")
+  .once("value")
+  .then(function(snapshot) {
+    var username = snapshot.val();
+    console.log(username);
+    // ...
+  });
 
-// for (key of Object.keys(temp)) {
-//   data[key] = Object.keys(temp[key]);
-//   db.collection("LyrX-data")
-//      .doc(data.author)
-//     .set({ [data.song]: data.tekst }, { merge: true });
-//   console.log(data);
-// }
-
-//setTimeout(console.log(data), 2000)

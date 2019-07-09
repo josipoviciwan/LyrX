@@ -6,36 +6,17 @@ import * as serviceWorker from "./serviceWorker";
 import "./index.css";
 //COMPONENTS
 import App from "./App";
+//Redux-persist
 import configureStore from "./redux/store";
-import { Provider, connect } from "react-redux";
+import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/lib/integration/react";
-import firebase from "@firebase/app";
-import "@firebase/firestore";
-import { FirestoreProvider } from "react-firestore";
 
-import { db } from "./firebase/firebase";
 const { store, persistor } = configureStore();
-
-const mapStateToProps = state => ({
-  text: state.form.text,
-  foo: state.form.foo
-});
-
-const ConnectedApp = connect(mapStateToProps)(App);
-
-const config = {
-  apiKey: "AIzaSyBoTxoYqKOpLd4CBzxau1G8tHvQOlF9kGY",
-  authDomain: "lyrx-app.firebaseapp.com",
-  projectId: "lyrx-app"
-};
-// firebase.initializeApp(config);
 
 ReactDOM.render(
   <Provider store={store}>
     <PersistGate persistor={persistor}>
-      <FirestoreProvider firebase={firebase}>
-        <ConnectedApp />
-      </FirestoreProvider>
+      <App />
     </PersistGate>
   </Provider>,
   document.getElementById("root")

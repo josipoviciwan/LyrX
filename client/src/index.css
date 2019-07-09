@@ -21,17 +21,18 @@
 .navList li a:hover {
   background-color: #111;
 }
+
+body {
+  background: #333;
+  color: white;
+}
+.is-active {
+  background-color: #111;
+}
 * {
   padding: 0px;
   margin: 0px;
 }
-body{
-  background: #333;
-  color:white;
-}
-.is-active{
-  background-color: #111;
-}
-*{
-  white-space:pre-line;
+.songText {
+  white-space: pre-line;
 }

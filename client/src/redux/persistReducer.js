@@ -1,5 +1,6 @@
 const defaultState = {
   text: 'initial',
+  polje:["PRAZNO POLJE"],
   foo: {
     bar: 'zoo',
     nested: {
@@ -14,6 +15,15 @@ export default function(state=defaultState, action = {}) {
       return {
         ...state,
         text: action.text,
+        foo: {
+          ...state.foo,
+          bar: action.text,
+        },
+      };
+      case 'UPDATE-AUTHORS':
+      return {
+        ...state,
+        polje: action.polje,
         foo: {
           ...state.foo,
           bar: action.text,

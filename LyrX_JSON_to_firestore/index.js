@@ -9,13 +9,23 @@ firebase.initializeApp({
   projectId: "lyrx-app"
 });
 
+data = {}
+
 var db = firebase.firestore();
 
+let temp = require('./data.json')
 
-for (key of Object.keys(temp.songs)) {
-  let data = temp.songs[key];
-  db.collection("LyrX-data")
-    .doc(data.author)
-    .set({ [data.song]: data.tekst }, { merge: true });
-  console.log(key);
-}
+
+db.collection("authors")
+.doc("--allAuthors--")
+.set({ allAuthors: Object.keys(temp) }, { merge: true });
+
+// for (key of Object.keys(temp)) {
+//   data[key] = Object.keys(temp[key]);
+//   db.collection("LyrX-data")
+//      .doc(data.author)
+//     .set({ [data.song]: data.tekst }, { merge: true });
+//   console.log(data);
+// }
+
+//setTimeout(console.log(data), 2000)

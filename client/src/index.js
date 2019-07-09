@@ -12,6 +12,8 @@ import { PersistGate } from "redux-persist/lib/integration/react";
 import firebase from "@firebase/app";
 import "@firebase/firestore";
 import { FirestoreProvider } from "react-firestore";
+
+import { db } from "./firebase/firebase";
 const { store, persistor } = configureStore();
 
 const mapStateToProps = state => ({
@@ -22,15 +24,16 @@ const mapStateToProps = state => ({
 const ConnectedApp = connect(mapStateToProps)(App);
 
 const config = {
-  apiKey: "AIzaSyDJYTNE96GInhrGn3dzbWjup2GWh6sQWxo",
-  projectId: "lyrx-project"
+  apiKey: "AIzaSyBoTxoYqKOpLd4CBzxau1G8tHvQOlF9kGY",
+  authDomain: "lyrx-app.firebaseapp.com",
+  projectId: "lyrx-app"
 };
-firebase.initializeApp(config);
+// firebase.initializeApp(config);
 
 ReactDOM.render(
   <Provider store={store}>
     <PersistGate persistor={persistor}>
-      <FirestoreProvider firebase={firebase} >
+      <FirestoreProvider firebase={firebase}>
         <ConnectedApp />
       </FirestoreProvider>
     </PersistGate>

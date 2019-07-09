@@ -1,6 +1,6 @@
 import React from "react";
-import { FirestoreCollection, FirestoreDocument } from "react-firestore";
-
+import { FirestoreDocument } from "react-firestore";
+import { connect } from "react-redux";
 class Authors extends React.Component {
   render() {
     return (
@@ -11,16 +11,19 @@ class Authors extends React.Component {
           <li>Neki teksti i state: </li>
         </ul>
         <FirestoreDocument
-          path="Lyr-X-data/Edo Maajka"
+          path="authors/--allAuthors--"
           render={({ isLoading, data }) => {
             return isLoading ? (
-              <div>JEbiga brate neide</div>
+              <div>Loading ..</div>
             ) : (
               <div>
                 <h1>Stories</h1>
                 <ul>
-                  <li>{data.Bomba}</li>
-                  <li>{JSON.stringify(data)}</li>
+                  {data.allAuthors.sort().map((author, i) => (
+                    <li className="songText" key={i}>
+                      {author}
+                    </li>
+                  ))}
                 </ul>
               </div>
             );
@@ -31,4 +34,9 @@ class Authors extends React.Component {
   }
 }
 
-export default Authors;
+const mapStateToProps = state => ({
+  text: state.form.text,
+  foo: state.form.foo
+});
+
+export default connect(mapStateToProps)(Authors);

@@ -4,7 +4,7 @@ const defaultState = {
   songs: [],
   authors: [],
   songsList: [],
-  search:"Pronađite pjesmu..."
+  search: "Pronađite pjesmu..."
 };
 
 export default function(state = defaultState, action = {}) {
@@ -12,7 +12,13 @@ export default function(state = defaultState, action = {}) {
     case actionTypes.addSong:
       return {
         ...state,
-        songs: [action.payload.song, ...state.songs]
+        songs: [
+          ...new Set(
+            [action.payload.song, ...state.songs].map(item =>
+              JSON.stringify(item)
+            )
+          )
+        ].map(item => JSON.parse(item))
       };
     case actionTypes.updateAuthors:
       return {

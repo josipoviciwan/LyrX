@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { getPersistActions } from "../redux/persistActions";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 class Songs extends React.Component {
   componentDidMount() {
     this.setState({
@@ -18,9 +18,13 @@ class Songs extends React.Component {
       .replace("đ", "d");
 
     return (
-      <div>
-        <input value={this.props.search} onChange={this.props.updateSearch} />
-        <ul>
+      <div className="container">
+        <input
+          value={this.props.search}
+          onChange={this.props.updateSearch}
+          placeholder="Search songs..."
+        />
+        <ul className="songsList">
           {searchString.length > 3 &&
             this.props.songsList
               .filter(function(song) {
@@ -31,9 +35,9 @@ class Songs extends React.Component {
               })
               .map((l, i) => {
                 return (
-                  <li key={i}>
-                    {l.song}
+                  <li key={i} className="songListItem">
                     <NavLink
+                      style={{ textDecoration: "none", color: "white" }}
                       to={{
                         pathname: "/song",
                         state: {
@@ -42,9 +46,9 @@ class Songs extends React.Component {
                         }
                       }}
                     >
-                      Na pjesmu
+                      <div className="songName">{l.song}</div>
+                      <div className="authorName">{l.author}</div>
                     </NavLink>
-                    <strong style={{ color: "yellow" }}>{l.author}</strong>
                   </li>
                 );
               })}

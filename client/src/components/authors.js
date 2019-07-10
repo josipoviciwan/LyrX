@@ -5,9 +5,11 @@ class Authors extends React.Component {
   render() {
     return (
       <div className="container">
-        <ul>
+        <ul className="authorsList">
           {this.props.authors.sort().map((e, i) => (
-            <li key={i}>{e}</li>
+            <li key={i} className="authorsListElement">
+              {e}
+            </li>
           ))}
         </ul>
       </div>

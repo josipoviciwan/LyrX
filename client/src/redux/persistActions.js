@@ -12,5 +12,9 @@ export const getPersistActions = {
   addSong: data => ({
     type: actionTypes.addSong,
     payload: { song: data }
+  }),
+  updateSearch: data => ({
+    type: actionTypes.updateSearch,
+    payload: { search: data }
   })
 };

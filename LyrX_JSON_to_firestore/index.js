@@ -1,32 +1,27 @@
 const firebase = require("firebase");
+// Required for side-effects
+//require("firebase/firestore");
 
+// Initialize Cloud Firestore through Firebase
 firebase.initializeApp({
   apiKey: "AIzaSyBoTxoYqKOpLd4CBzxau1G8tHvQOlF9kGY",
   authDomain: "lyrx-app.firebaseapp.com",
-  databaseURL: "https://lyrx-app.firebaseio.com",
-  projectId: "lyrx-app",
-  storageBucket: "lyrx-app.appspot.com",
-  messagingSenderId: "104087623318",
-  appId: "1:104087623318:web:e69d843653905449"
+  projectId: "lyrx-app"
 });
 
-data = [];
+data = {};
 
-var db = firebase.database(); //ovjde
+var db = firebase.firestore();
 
 let temp = require("./data.json");
 
 for (let key of Object.keys(temp)) {
-  for (song of Object.keys(temp[key])) data.push({ song, author: key });
+  for (song of Object.keys(temp[key])) {
+    let t = { song, author: key, text: temp[key][song] };
+    let docName = song + " - " + key;
+    console.log(t);
+    db.collection("songs")
+      .doc()
+      .set(t);
+  }
 }
-
-return firebase
-  .database()
-  .ref("/data")
-  .once("value")
-  .then(function(snapshot) {
-    var username = snapshot.val();
-    console.log(username);
-    // ...
-  });
-

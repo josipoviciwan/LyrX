@@ -3,7 +3,8 @@ import { actionTypes } from "./actionTypes";
 const defaultState = {
   songs: [],
   authors: [],
-  songsList: []
+  songsList: [],
+  search:"Pronađite pjesmu..."
 };
 
 export default function(state = defaultState, action = {}) {
@@ -22,6 +23,11 @@ export default function(state = defaultState, action = {}) {
       return {
         ...state,
         songsList: action.payload.songsList
+      };
+    case actionTypes.updateSearch:
+      return {
+        ...state,
+        search: action.payload.search
       };
     default:
       return state;

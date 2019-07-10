@@ -8,7 +8,8 @@ import {
   GeneralError,
   Songs,
   Authors,
-  History
+  History,
+  Song
 } from "./components/";
 
 class App extends React.Component {
@@ -36,6 +37,7 @@ class App extends React.Component {
             <Route exact path="/" component={Songs} />
             <Route exact path="/authors" component={Authors} />
             <Route exact path="/history" component={History} />
+            <Route exact path="/song" component={Song} />
             <Route component={GeneralError} />
           </Switch>
         </AppLayout>

@@ -4,9 +4,9 @@ import { connect } from "react-redux";
 class Authors extends React.Component {
   render() {
     return (
-      <div>
+      <div className="container">
         <ul>
-          {this.props.authors.map((e, i) => (
+          {this.props.authors.sort().map((e, i) => (
             <li key={i}>{e}</li>
           ))}
         </ul>

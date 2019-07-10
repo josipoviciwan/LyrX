@@ -1,38 +1,11 @@
-.navList {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-.navList li {
-  float: left;
-  background-color: #333;
-  width: calc(100% / 3);
-}
-
-.navList li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-.navList li a:hover {
-  background-color: #111;
-}
-
+@import "./css/app.css";
 body {
   background: #333;
   color: white;
 }
-.is-active {
-  background-color: #111;
-}
+
 * {
   padding: 0px;
   margin: 0px;
-}
-.songText {
-  white-space: pre-line;
+  font-family: 'Roboto', sans-serif;
 }

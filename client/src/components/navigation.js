@@ -19,7 +19,6 @@ const Navigation = ({ children }) => (
           History
         </NavLink>
       </li>
-
     </ul>
   </nav>
 );

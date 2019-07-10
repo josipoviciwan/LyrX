@@ -30,11 +30,11 @@ function configureStore(initialState = {}) {
     initialState
   );
 
-  console.log("initialState", store.getState());
+  // console.log("initialState", store.getState());
 
   const persistor = persistStore(store, null, () => {
     // if you want to get restoredState
-    console.log("restoredState", store.getState());
+    // console.log("restoredState", store.getState());
   });
 
   return { store, persistor };

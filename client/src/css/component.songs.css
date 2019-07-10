@@ -1,0 +1,10 @@
+input {
+  text-align: center;
+  padding: 10px;
+  border-radius: 5px;
+  position: relative;
+  margin: 20px 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+}

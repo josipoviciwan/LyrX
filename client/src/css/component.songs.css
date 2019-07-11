@@ -1,10 +1,41 @@
 input {
   text-align: center;
-  padding: 10px;
+  border: 1px;
   border-radius: 5px;
-  position: relative;
-  margin: 20px 0px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80%;
+  margin-top: 10px;
+  left: 2.5%;
+
+  padding: 2.5%;
+  width: 90%;
+  font-size: 20px;
+}
+.input-wrapper{
+  background: #333;
+  width: 100%;
+  position: fixed;
+  top: 0px;
+  padding-bottom: 10px;
+
+}
+ul {
+  list-style: none;
+}
+.songsList {
+  margin-top: 50px;
+}
+.songListItem {
+  text-align: left;
+  padding: 10px;
+}
+li:nth-child(even) {
+  background: #333;
+}
+li:nth-child(odd) {
+  background: #111;
+}
+.songName {
+  font-size: 20px;
+}
+.authorName {
+  font-size: 15px;
 }

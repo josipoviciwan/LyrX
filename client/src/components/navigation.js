@@ -1,25 +1,34 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
+import { faHome, faHistory } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const Navigation = ({ children }) => (
-  <nav>
-    <ul className="navList">
-      <li>
-        <NavLink activeClassName="is-active" exact={true} to="/">
-          Songs
-        </NavLink>
-      </li>
-      <li>
-        <NavLink activeClassName="is-active" to="/authors">
-          Authors
-        </NavLink>
-      </li>
-      <li>
-        <NavLink activeClassName="is-active" to="/history">
-          History
-        </NavLink>
-      </li>
-    </ul>
+  <nav className="stickyNav">
+    <NavLink
+      to="/"
+      style={{ textDecoration: "none", color: "white" }}
+      activeClassName="is-active"
+      className="navButtons"
+      exact
+    >
+      <button>
+        <FontAwesomeIcon icon={faHome} />
+      </button>
+    </NavLink>
+
+    <NavLink
+      to="/history"
+      style={{ textDecoration: "none", color: "white" }}
+      activeClassName="is-active"
+      className="navButtons"
+      exact
+    >
+
+      <button>
+        <FontAwesomeIcon icon={faHistory} />
+      </button>
+    </NavLink>
   </nav>
 );
 

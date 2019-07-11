@@ -1,9 +1,11 @@
 .songText {
   white-space: pre-line;
+
 }
 .container {
   text-align: center;
-  padding: 50px;
+  padding-top: 4%;
+  width: 100%;
 }
 h2 {
   padding: 10px;

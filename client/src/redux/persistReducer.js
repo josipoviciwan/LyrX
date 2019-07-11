@@ -4,7 +4,7 @@ const defaultState = {
   songs: [],
   authors: [],
   songsList: [],
-  search: "Pronađite pjesmu..."
+  search: ""
 };
 
 export default function(state = defaultState, action = {}) {

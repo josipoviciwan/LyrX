@@ -11,7 +11,7 @@ class Song extends React.Component {
     let author = this.props.history.location.state.authorName;
     let song = this.props.history.location.state.songName;
     let filtered = this.props.songs.filter(
-      obj => obj.song == song && obj.author == author
+      obj => obj.song === song && obj.author === author
     );
     if (filtered.length) {
       this.setState({ text: filtered[0].text });

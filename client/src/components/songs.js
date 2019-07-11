@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { getPersistActions } from "../redux/persistActions";
 import { NavLink } from "react-router-dom";
+
 class Songs extends React.Component {
   componentDidMount() {
     this.setState({
@@ -19,19 +20,21 @@ class Songs extends React.Component {
 
     return (
       <div className="container">
-        <input
-          value={this.props.search}
-          onChange={this.props.updateSearch}
-          placeholder="Search songs..."
-        />
+        <div className="input-wrapper">
+          <input
+            value={this.props.search}
+            onChange={this.props.updateSearch}
+            placeholder="Search songs..."
+          />
+        </div>
+        {searchString.length <= 3 && "Unesite ime pjesme"}
         <ul className="songsList">
           {searchString.length > 3 &&
             this.props.songsList
               .filter(function(song) {
-                return (
-                  song.song.toLowerCase().match(searchString) ||
-                  song.author.toLowerCase().match(searchString)
-                );
+                return (song.song + " " + song.author)
+                  .toLowerCase()
+                  .match(searchString);
               })
               .map((l, i) => {
                 return (

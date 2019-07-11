@@ -1,17 +1,8 @@
-.songListItem {
-  padding: 10px;
-  border-bottom: solid 1px black;
-  border-top: solid 1px black;
-  margin-right: -1px;
-  margin-bottom: -1px;
-}
-.songListItem:hover {
-  background: black;
-}
-ul {
-  list-style: none;
-}
 
-.songsList {
-  margin-top: 50px;
+
+.history-container {
+  text-align: center;
+  padding-top: 0px;
+
+  width: 100%;
 }

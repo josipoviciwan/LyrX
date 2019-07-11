@@ -1,10 +1,9 @@
 import React from "react";
-import { Navigation, GeneralError } from "./";
+import { Navigation } from "./";
 
 const AppLayout = ({ children }) => (
   <div>
     <header>
-      {" "}
       <Navigation />
     </header>
     <main>{children}</main>

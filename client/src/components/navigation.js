@@ -1,9 +1,9 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-import { faHome, faHistory } from "@fortawesome/free-solid-svg-icons";
+import { faHistory, faBars } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-const Navigation = ({ children }) => (
+const Navigation = () => (
   <nav className="stickyNav">
     <NavLink
       to="/"
@@ -12,8 +12,10 @@ const Navigation = ({ children }) => (
       className="navButtons"
       exact
     >
-      <button>
-        <FontAwesomeIcon icon={faHome} />
+      <button id="songs">
+        <FontAwesomeIcon icon={faBars} />
+        <br />
+        Songs
       </button>
     </NavLink>
 
@@ -24,9 +26,10 @@ const Navigation = ({ children }) => (
       className="navButtons"
       exact
     >
-
-      <button>
+      <button id="history">
         <FontAwesomeIcon icon={faHistory} />
+        <br />
+        History
       </button>
     </NavLink>
   </nav>

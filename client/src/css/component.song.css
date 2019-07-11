@@ -1,15 +1,11 @@
-.songText {
-  white-space: pre-line;
-
-}
-.container {
-  text-align: center;
-  padding-top: 4%;
-  width: 100%;
-}
-h2 {
+.song-title {
   padding: 10px;
+  padding-top: 0px;
 }
-h3 {
-  margin-bottom: 20px;
+.song-author {
+  margin-bottom: 15px;
+}
+.song-container {
+  text-align: center;
+  padding: 0px;
 }

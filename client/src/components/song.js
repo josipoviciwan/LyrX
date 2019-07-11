@@ -34,10 +34,14 @@ class Song extends React.Component {
   }
   render() {
     return (
-      <div className="container">
-        <h2>{this.props.history.location.state.songName}</h2>
-        <h3>{this.props.history.location.state.authorName}</h3>
-        <div className="songText">{this.state.text}</div>
+      <div className="song-container">
+        <h2 className="song-title">
+          {this.props.history.location.state.songName}
+        </h2>
+        <h3 className="song-author">
+          {this.props.history.location.state.authorName}
+        </h3>
+        <div>{this.state.text}</div>
       </div>
     );
   }

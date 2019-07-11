@@ -1,41 +1,40 @@
 input {
   text-align: center;
   border: 1px;
-  border-radius: 5px;
-  margin-top: 10px;
+  border-radius: 50px;
+  margin-top: 5px;
   left: 2.5%;
-
   padding: 2.5%;
   width: 90%;
   font-size: 20px;
+  outline: none;
 }
-.input-wrapper{
-  background: #333;
+.input-wrapper {
+  background: #1db954;
   width: 100%;
   position: fixed;
   top: 0px;
-  padding-bottom: 10px;
-
+  padding-bottom: 5px;
+  border-radius: 0 0 30px 30px;
 }
 ul {
   list-style: none;
 }
 .songsList {
-  margin-top: 50px;
+  margin-top: 30px;
 }
 .songListItem {
   text-align: left;
   padding: 10px;
+  border-bottom: 2px solid #26282b;
+  margin: 0px 20px;
 }
-li:nth-child(even) {
-  background: #333;
-}
-li:nth-child(odd) {
-  background: #111;
-}
+
 .songName {
   font-size: 20px;
+  color: #ffffff;
 }
 .authorName {
   font-size: 15px;
+  color: #a6a7ac;
 }

@@ -1,12 +1,1 @@
 @import "./css/app.css";
-body {
-  background: #333;
-  color: white;
-
-}
-
-* {
-  padding: 0px;
-  margin: 0px;
-  font-family: 'Roboto', sans-serif;
-}

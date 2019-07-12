@@ -1,19 +1,19 @@
 input {
   text-align: center;
-  border: 1px;
+  outline: none;
+  border: none;
   border-radius: 50px;
   margin-top: 5px;
-  left: 2.5%;
-  padding: 2.5%;
-  width: 90%;
-  font-size: 20px;
-  outline: none;
+  font-size: 27px;
+  padding: 20px;
+  width: calc(95% - 2 * 20px);
 }
 .input-wrapper {
-  background: #1db954;
+  background: #27ff72;
   width: 100%;
   position: fixed;
   top: 0px;
+  left: 0px;
   padding-bottom: 5px;
   border-radius: 0 0 30px 30px;
 }
@@ -21,7 +21,7 @@ ul {
   list-style: none;
 }
 .songsList {
-  margin-top: 30px;
+  margin-top: 85px;
 }
 .songListItem {
   text-align: left;
@@ -31,10 +31,11 @@ ul {
 }
 
 .songName {
-  font-size: 20px;
+  font-size: 25px;
   color: #ffffff;
 }
 .authorName {
-  font-size: 15px;
+  font-size: 20px;
   color: #a6a7ac;
+  font-style: italic;
 }

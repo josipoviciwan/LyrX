@@ -41,7 +41,7 @@ class Song extends React.Component {
         <h3 className="song-author">
           {this.props.history.location.state.authorName}
         </h3>
-        <div>{this.state.text}</div>
+        <div className = "songText">{this.state.text}</div>
       </div>
     );
   }

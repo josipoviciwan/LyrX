@@ -1,4 +1,4 @@
-export {default as Authors} from './authors'
+
 export {default as GeneralError} from './generalerror'
 export {default as Navigation} from './navigation'
 export {default as Songs} from './songs'

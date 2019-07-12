@@ -8,7 +8,7 @@ function configureStore(initialState = {}) {
     auth: () => ({ mock: true }),
     lyrx: persistReducer(
       {
-        key: "lyrx", // key for localStorage key, will be: "persist:form"
+        key: "lyrx",
         storage,
         debug: true,
         blacklist: ["foo"]
@@ -33,7 +33,6 @@ function configureStore(initialState = {}) {
   // console.log("initialState", store.getState());
 
   const persistor = persistStore(store, null, () => {
-    // if you want to get restoredState
     // console.log("restoredState", store.getState());
   });
 

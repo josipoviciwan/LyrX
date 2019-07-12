@@ -1,11 +1,21 @@
 .song-title {
-  padding: 10px;
-  padding-top: 0px;
+  padding: 15px;
+  padding-bottom: 5px;
+  font-size: 30px;
+  color: #ffffff;
 }
 .song-author {
   margin-bottom: 15px;
+  font-size: 23px;
+  color: #a6a7ac;
+  font-style: italic;
 }
 .song-container {
   text-align: center;
   padding: 0px;
+}
+.songText {
+  white-space: pre-line;
+  font-size: 25px;
+  padding: 10px;
 }

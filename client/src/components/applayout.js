@@ -2,11 +2,11 @@ import React from "react";
 import { Navigation } from "./";
 
 const AppLayout = ({ children }) => (
-  <div>
+  <div className="Site">
     <header>
       <Navigation />
     </header>
-    <main>{children}</main>
+    <main className="Site-content">{children}</main>
     <footer>LyrX &copy; </footer>
   </div>
 );

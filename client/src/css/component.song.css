@@ -19,3 +19,9 @@
   font-size: 25px;
   padding: 10px;
 }
+.back-button{
+  width: 100%;
+  font-size: 50px;
+  padding: 0;
+  color:#30e670;
+}

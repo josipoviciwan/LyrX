@@ -2,7 +2,9 @@ import React from "react";
 import { db } from "../firebase/firebase";
 import { connect } from "react-redux";
 import { getPersistActions } from "../redux/persistActions";
-
+import { faLongArrowAltLeft } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { NavLink } from "react-router-dom";
 class Song extends React.Component {
   state = {
     text: ""
@@ -35,13 +37,19 @@ class Song extends React.Component {
   render() {
     return (
       <div className="song-container">
+        <NavLink to="/" style={{ textDecoration: "none", color: "white" }}>
+          <button className="back-button">
+            <FontAwesomeIcon icon={faLongArrowAltLeft} />
+          </button>
+        </NavLink>
+
         <h2 className="song-title">
           {this.props.history.location.state.songName}
         </h2>
         <h3 className="song-author">
           {this.props.history.location.state.authorName}
         </h3>
-        <div className = "songText">{this.state.text}</div>
+        <div className="songText">{this.state.text}</div>
       </div>
     );
   }

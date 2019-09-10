@@ -5,6 +5,7 @@ class History extends React.Component {
   render() {
     return (
       <div className="history-container">
+        HISTORY
         <ul className="histroy-songsList">
           {this.props.songs.map((l, i) => (
             <li key={i} className="songListItem">

@@ -1,17 +1,16 @@
 footer {
   text-align: center;
-  width: 50%;
-  padding-bottom: 60px;
+  width: 100%;
+  padding-bottom: 70px;
   padding-top: 10px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 20px;
-  color: #30e670;
-  font-size: 20px;
-  font-weight: bolder;
-  background-color: rgba(34, 35, 39, 0.5);
 
-  border: solid 1px #30e670;
-  border-radius: 20px 20px 0 0;
+  margin-top: 20px;
+  color: grey;
+  font-size: 20px;
+  font-style: italic;
+  font-weight: bold;
+  background-color: rgba(82, 83, 85, 0.2);
+
+  /* border-radius: 50px 50px 0 0; */
   z-index: -1;
 }

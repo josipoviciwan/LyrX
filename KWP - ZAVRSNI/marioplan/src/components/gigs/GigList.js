@@ -1,33 +1,25 @@
 import React from "react";
 import GigSummary from "./GigSummary";
-import { Table } from "react-bootstrap";
 import DownloadGigs from "../gigs/DownloadGigs";
 import CreateGigsCsv from "../gigs/CreateGigsCsv";
 import CreateGigModal from "./ModalGig";
 import { connect } from "react-redux";
 
-const GigList = (props) => {
+const GigList = props => {
   let gigs = props.gigs;
   if (gigs) {
     return (
-      <Table
-        striped
-        bordered
-        hover
-        responsive
-        variant="dark"
-        className="text-center"
-      >
+      <table className="table table-striped table-dark text-center table-hover table-responsive">
         <thead>
           <tr>
             <th>
-              <CreateGigModal></CreateGigModal>
+              <CreateGigModal />
             </th>
             <th>
-              <DownloadGigs></DownloadGigs>
+              <DownloadGigs />
             </th>
             <th colSpan="4">
-              <CreateGigsCsv></CreateGigsCsv>
+              <CreateGigsCsv />
             </th>
           </tr>
           <tr>
@@ -41,11 +33,11 @@ const GigList = (props) => {
         </thead>
         <tbody>
           {gigs &&
-            gigs.map((gig, i) => {
-              return <GigSummary gig={gig} i={i} key={i} />;
+            gigs.map((gig,i) => {
+              return <GigSummary gig={gig} key={gig.id+i} i={i} />;
             })}
         </tbody>
-      </Table>
+      </table>
     );
   } else return <div>Loading gigs...</div>;
 };

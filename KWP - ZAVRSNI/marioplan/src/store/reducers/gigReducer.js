@@ -16,7 +16,7 @@ const gigReducer = (state = initState, action) => {
       return state;
     case "DELETE_GIG_SUCCESS":
       console.log("delete gig success");
-      window.location.reload();
+      // window.location.reload();
       return state;
     case "DELETE_GIG_ERROR":
       console.log("delete gig error");

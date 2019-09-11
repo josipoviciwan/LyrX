@@ -8,6 +8,7 @@ import SignUp from "./components/auth/SignUp";
 import { connect } from "react-redux";
 import { firestoreConnect } from "react-redux-firebase";
 import { compose } from "redux";
+import Statistics from "./components/gigs/Statistics";
 
 class App extends Component {
   render() {
@@ -20,6 +21,7 @@ class App extends Component {
             <Route exact path="/gig/:id" component={GigDetails} />
             <Route exact path="/signin" component={SignIn} />
             <Route exact path="/signup" component={SignUp} />
+            <Route exact path="/statistics" component={Statistics} />
             <Route path="/*" component={SignIn} />
           </Switch>
         </div>

@@ -8,13 +8,13 @@ const SignedInLinks = props => {
   return (
     <Navbar.Collapse id="basic-navbar-nav">
       <Nav className="ml-auto" variant="pills">
-        <NavItem eventkey={1} href="/home">
+        <NavItem href="/home">
           <Nav.Link as={NavLink} to="/home">
             Home
           </Nav.Link>
         </NavItem>
 
-        <NavItem eventkey={1} href="/statistics">
+        <NavItem href="/statistics">
           <Nav.Link as={NavLink} to="/statistics">
             Statistics
           </Nav.Link>
@@ -30,12 +30,6 @@ const SignedInLinks = props => {
   );
 };
 
-const mapStateToProps = state => {
-  return {
-    gigs: state.firestore.ordered.gigs
-  };
-};
-
 const mapDispatchToProps = dispatch => {
   return {
     signOut: () => dispatch(signOut())
@@ -43,8 +37,10 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default connect(
-  mapStateToProps,
+  null,
   mapDispatchToProps,
   null,
-  { pure: false }
+  {
+    pure: false //For nav-links top be active
+  }
 )(SignedInLinks);

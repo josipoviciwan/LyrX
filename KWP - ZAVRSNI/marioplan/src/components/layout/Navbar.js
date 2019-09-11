@@ -17,7 +17,7 @@ const NavbarComponent = props => {
     <Navbar bg="primary" expand="lg" variant="dark">
       <div className="container">
         <Navbar.Brand>
-          <FontAwesomeIcon icon={faGuitar}></FontAwesomeIcon> GigNums
+          <FontAwesomeIcon icon={faGuitar} /> GigNums
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         {links}
@@ -37,5 +37,7 @@ export default connect(
   mapStateToProps,
   null,
   null,
-  { pure: false }
+  {
+    pure: false //For nav-links top be active
+  }
 )(NavbarComponent);

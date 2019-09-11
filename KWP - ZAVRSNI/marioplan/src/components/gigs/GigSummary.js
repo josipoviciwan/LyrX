@@ -1,4 +1,3 @@
-// import React, { useState } from "react";
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import {
@@ -9,7 +8,8 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { updateGig, deleteGig } from "../../store/actions/gigActions";
-export class GigSummary extends Component {
+
+class GigSummary extends Component {
   constructor(props) {
     super(props);
     let { date, band, profit, id } = props.gig;
@@ -20,8 +20,8 @@ export class GigSummary extends Component {
       edit: false,
       i: this.props.i,
       id: id
-      // dateLocal:temp.toLocaleDateString()
     };
+
     this.handleUpdate = this.handleUpdate.bind(this);
     this.handleEdit = this.handleEdit.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
@@ -30,7 +30,6 @@ export class GigSummary extends Component {
     this.handleCancel = this.handleCancel.bind(this);
   }
   handleUpdate = e => {
-    console.log(this.state.id);
     this.props.updateGig(
       {
         band: this.state.band,
@@ -55,7 +54,7 @@ export class GigSummary extends Component {
   };
   handleCancel = e => {
     this.handleEdit();
-    console.log(this.props.gig);
+
     let { date, band, profit } = this.props.gig;
     this.setState({
       date: new Date(date.seconds * 1000).toISOString().substr(0, 10),
@@ -64,10 +63,9 @@ export class GigSummary extends Component {
     });
   };
   render() {
-    console.log(JSON.stringify(this.state));
     let { date, profit, band, i, edit } = this.state;
     return edit ? (
-      <tr key={i} className="">
+      <tr className="">
         <td>{i + 1}</td>
         <td className="no-padding ">
           <div className="form-group  p-0 m-0">
@@ -108,10 +106,10 @@ export class GigSummary extends Component {
         </td>
       </tr>
     ) : (
-      <tr key={i}>
+      <tr>
         <td>{i + 1}</td>
         <td>{new Date(this.state.date).toLocaleDateString()} </td>
-        <td>{profit}</td>
+        <td>{profit} kn</td>
         <td>{band}</td>
         <td>
           <FontAwesomeIcon icon={faEdit} onClick={this.handleEdit} />
@@ -123,11 +121,7 @@ export class GigSummary extends Component {
     );
   }
 }
-const mapStateToProps = state => {
-  return {
-    gigs: state.firestore.ordered.gigs
-  };
-};
+
 const mapDispatchToProps = dispatch => {
   return {
     updateGig: (gig, id) => dispatch(updateGig(gig, id)),
@@ -136,6 +130,6 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default connect(
-  mapStateToProps,
+  null,
   mapDispatchToProps
 )(GigSummary);

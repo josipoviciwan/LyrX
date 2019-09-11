@@ -50,3 +50,6 @@ form h5 {
 .no-padding {
   padding: 0 !important;
 }
+.apexcharts-legend-text{
+  color:white !important;
+}

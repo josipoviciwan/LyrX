@@ -195,15 +195,15 @@ class Example extends React.Component {
   render() {
     return (
       <div id="chart">
-        <div className="toolbar">
+        <div className="toolbar btn-group d-flex" role="group" >
           <button
             onClick={() => this.updateData("one_month")}
             id="one_month"
             type="button"
             className={
               this.state.selection === "one_month"
-                ? "active btn btn-primary  "
-                : "btn btn-primary  "
+                ? "active btn btn-success  "
+                : "btn btn-secondary  "
             }
           >
             1 month
@@ -213,8 +213,8 @@ class Example extends React.Component {
             id="six_months"
             className={
               this.state.selection === "six_months"
-                ? "active btn btn-primary   "
-                : " btn btn-primary  "
+                ? "active btn btn-secondary   "
+                : " btn btn-secondary  "
             }
           >
             6 months
@@ -224,8 +224,8 @@ class Example extends React.Component {
             id="one_year"
             className={
               this.state.selection === "one_year"
-                ? "active btn btn-primary  "
-                : " btn btn-primary  "
+                ? "active btn btn-secondary  "
+                : " btn btn-secondary  "
             }
           >
             1 year
@@ -235,8 +235,8 @@ class Example extends React.Component {
             id="ytd"
             className={
               this.state.selection === "ytd"
-                ? "active btn btn-primary  "
-                : " btn btn-primary  "
+                ? "active btn btn-secondary  "
+                : " btn btn-secondary  "
             }
           >
             This year
@@ -246,8 +246,8 @@ class Example extends React.Component {
             id="all"
             className={
               this.state.selection === "all"
-                ? "active btn btn-primary  "
-                : " btn btn-primary  "
+                ? "active btn btn-secondary  "
+                : " btn btn-secondary  "
             }
           >
             All
@@ -257,7 +257,7 @@ class Example extends React.Component {
           options={this.state.options}
           series={this.state.series}
           type="bar"
-          height="350"
+          height="auto"
         />
         {/* line
 area

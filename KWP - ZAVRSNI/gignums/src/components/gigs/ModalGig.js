@@ -6,6 +6,7 @@ import { faTimes, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const customStyles = {
+  overlay: { width: "100%" },
   content: {
     top: "50%",
     left: "50%",
@@ -14,7 +15,9 @@ const customStyles = {
     marginRight: "-50%",
     transform: "translate(-50%, -50%)",
     backgroundColor: "#303030",
-    textAlign: "center"
+    textAlign: "center",
+    width: "100%",
+    height:"auto"
   }
 };
 
@@ -56,8 +59,8 @@ class CreateGigModal extends React.Component {
   render() {
     return (
       <div>
-        <button className="btn btn-primary p-3 " onClick={this.openModal}>
-          <FontAwesomeIcon icon={faPlus}></FontAwesomeIcon> Add gig
+        <button className="btn btn-secondary" onClick={this.openModal}>
+          <FontAwesomeIcon icon={faPlus}></FontAwesomeIcon>
         </button>
         <Modal
           isOpen={this.state.modalIsOpen}
@@ -78,7 +81,7 @@ class CreateGigModal extends React.Component {
             className="text-center mx-auto bg-dark rounded  mt-5 "
           >
             <h4 ref={title => (this.title = title)} className="">
-              Input gig data
+              Add gig
             </h4>
             <div className="form-group">
               <label htmlFor="date">Date: </label>

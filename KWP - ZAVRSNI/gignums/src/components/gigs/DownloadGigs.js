@@ -32,9 +32,9 @@ const DownloadGigs = props => {
         filename={"my-gigs.csv"}
         target="_blank"
         enclosingCharacter={``}
-        className="btn btn-primary p-3"
+        className="btn btn-secondary"
       >
-        <FontAwesomeIcon icon={faDownload}></FontAwesomeIcon> Download CSV
+        <FontAwesomeIcon icon={faDownload}></FontAwesomeIcon>
       </CSVLink>
     );
   } else return <div>Loading links...</div>;

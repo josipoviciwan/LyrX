@@ -1,13 +1,7 @@
 import React from "react";
 import Chart from "react-apexcharts";
 import { connect } from "react-redux";
-import { Card, CardDeck } from "react-bootstrap";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faEuroSign,
-  faSortAmountUp,
-  faBalanceScale
-} from "@fortawesome/free-solid-svg-icons";
+
 class DonutChart extends React.Component {
   constructor(props) {
     super(props);
@@ -17,7 +11,7 @@ class DonutChart extends React.Component {
       value: "All",
 
       options: {
-        legend: { position: "bottom" },
+        legend: { position: "bottom", floating: true },
         fill: {
           type: "gradient"
         },
@@ -416,28 +410,29 @@ class DonutChart extends React.Component {
               series={this.state.series}
               type="donut"
               width="100%"
+              height="auto"
             />
           </div>
 
           <div className=" col col-12 col-lg-6 text-center">
             <div className="row w-100 pt-5">
               <div className="col col-12    ">
-                <div class="card text-white bg-success  mx-auto my-1">
-                  <div class="card-header">{this.state.value + "  profit"}</div>
-                  <div class="card-body">
-                    <h5 class="card-title">{total} KN</h5>
+                <div className="card text-white bg-success  mx-auto my-1">
+                  <div className="card-header">{this.state.value + "  profit"}</div>
+                  <div className="card-body">
+                    <h5 className="card-title">{total} KN</h5>
                   </div>
                 </div>
               </div>
 
               <div className="col col-12    ">
-                <div class="card text-white  bg-warning mx-auto my-1">
-                  <div class="card-header">
+                <div className="card text-white  bg-warning mx-auto my-1">
+                  <div className="card-header">
                     {" "}
                     {this.state.value + " average per gig profit"}
                   </div>
-                  <div class="card-body">
-                    <h5 class="card-title">
+                  <div className="card-body">
+                    <h5 className="card-title">
                       {Math.round(
                         total /
                           Math.max(
@@ -462,13 +457,13 @@ class DonutChart extends React.Component {
               </div>
 
               <div className="col col-12   ">
-                <div class="card text-white  bg-info mx-auto my-1">
-                  <div class="card-header">
+                <div className="card text-white  bg-info mx-auto my-1">
+                  <div className="card-header">
                     {" "}
                     {this.state.value + " monthly profit"}
                   </div>
-                  <div class="card-body">
-                    <h5 class="card-title">
+                  <div className="card-body">
+                    <h5 className="card-title">
                       {this.state.value == "All"
                         ? Math.round(
                             total /
@@ -483,21 +478,15 @@ class DonutChart extends React.Component {
                   </div>
                 </div>
               </div>
-              {console.log()}
-              {console.log(
-                (Math.max(...this.state.years) -
-                  Math.min(...this.state.years) +
-                  1) *
-                  12
-              )}
+             
               <div className="col col-12  ">
-                <div class="card text-white   bg-danger mx-auto my-1">
-                  <div class="card-header">
+                <div className="card text-white   bg-danger mx-auto my-1">
+                  <div className="card-header">
                     {" "}
                     {this.state.value + " gig number"}
                   </div>
-                  <div class="card-body">
-                    <h5 class="card-title">
+                  <div className="card-body">
+                    <h5 className="card-title">
                       {Math.max(
                         1,
 

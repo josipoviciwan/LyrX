@@ -63,15 +63,15 @@ class GigSummary extends Component {
     });
   };
   render() {
-    let { date, profit, band, i, edit } = this.state;
+    let { date, profit, band,  edit } = this.state;
     return edit ? (
       <tr className="justify-content-center">
-        {/* <td>{i + 1}</td> */}
+
         <td className="no-padding ">
           <div className="form-group  p-0 m-0">
             <input
               type="date"
-              className="form-control text-center mx-auto  mt-1"
+              className="form-control text-center"
               id="date"
               ref={datum => (this.datum = datum)}
               value={date}
@@ -82,7 +82,7 @@ class GigSummary extends Component {
         <td className="no-padding  align-center">
           <input
             type="number"
-            className="form-control  text-center profit-form mx-auto  mt-1"
+            className="form-control  text-center "
             id="profit"
             ref={zarada => (this.zarada = zarada)}
             value={profit}
@@ -92,7 +92,7 @@ class GigSummary extends Component {
         <td className=" no-padding">
           <input
             type="text"
-            className="form-control  text-center  band-form mx-auto mt-1"
+            className="form-control  text-center "
             id="band"
             value={band}
             onChange={this.handleChange}
@@ -108,7 +108,7 @@ class GigSummary extends Component {
     ) : (
       <tr className="justify-content-center">
         {/* <td>{i + 1}</td> */}
-        <td> {new Date(this.state.date).toLocaleDateString()} </td>
+        <td>{new Date(this.state.date).toLocaleDateString()} </td>
         <td>{profit}</td>
         <td>{band}</td>
         <td>

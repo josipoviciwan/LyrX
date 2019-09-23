@@ -1,8 +1,5 @@
 import React from "react";
 import GigSummary from "./GigSummary";
-import DownloadGigs from "../gigs/DownloadGigs";
-import CreateGigsCsv from "../gigs/CreateGigsCsv";
-import CreateGigModal from "./ModalGig";
 import { connect } from "react-redux";
 
 const GigList = props => {
@@ -11,21 +8,8 @@ const GigList = props => {
     return (
       <div className="table-responsive">
         <table className="table table-striped table-dark text-center table-hover ">
-          <thead >
-
-            {/* <tr className="justify-content-center">
-              <th>
-                <CreateGigModal />
-              </th>
-              <th>
-                <DownloadGigs />
-              </th>
-              <th colSpan="3">
-                <CreateGigsCsv />
-              </th>
-            </tr> */}
+          <thead>
             <tr className="justify-content-center">
-              {/* <th>#</th> */}
               <th>Date</th>
               <th>Profit</th>
               <th>Band</th>
@@ -36,7 +20,7 @@ const GigList = props => {
           <tbody>
             {gigs &&
               gigs.map((gig, i) => {
-                return <GigSummary gig={gig} key={gig.id + i} i={i} />;
+                return <GigSummary gig={gig} key={gig.id + i}  />;
               })}
           </tbody>
         </table>

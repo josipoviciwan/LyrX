@@ -4,6 +4,9 @@ import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { Card, CardDeck } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import DownloadGigs from "../gigs/DownloadGigs";
+import CreateGigsCsv from "../gigs/CreateGigsCsv";
+import CreateGigModal from "../gigs/ModalGig";
 import {
   faEuroSign,
   faSortAmountUp,
@@ -62,6 +65,14 @@ class Dashboard extends Component {
 
         <br />
         <div>
+          <div className="toolbar btn-group d-flex bg-secondary" role="group">
+            <CreateGigModal />
+
+            <DownloadGigs />
+
+            <CreateGigsCsv />
+          </div>
+
           <GigList />
         </div>
       </div>

@@ -23,7 +23,16 @@ form h5 {
 @media (min-width: 0px) {
   .card {
     width: 75%;
+    margin: 0 auto;
   }
+  .container {
+    padding: 0 !important;
+  }
+  td {
+    padding:  5px 0 !important;
+    font-size: 12px;
+  }
+
 }
 
 /* // Small devices */
@@ -41,7 +50,7 @@ form h5 {
   #sign-form {
     width: 75%;
   }
-  .linechart-wrapper{
+  .linechart-wrapper {
     padding-right: 30px;
     padding-left: 30px;
   }

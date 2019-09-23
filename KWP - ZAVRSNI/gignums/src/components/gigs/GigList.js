@@ -10,26 +10,27 @@ const GigList = props => {
   if (gigs) {
     return (
       <div className="table-responsive">
-        <table className="table table-striped table-dark text-center table-hover">
-          <thead>
-            <tr>
+        <table className="table table-striped table-dark text-center table-hover ">
+          <thead >
+
+            {/* <tr className="justify-content-center">
               <th>
                 <CreateGigModal />
               </th>
               <th>
                 <DownloadGigs />
               </th>
-              <th colSpan="4">
+              <th colSpan="3">
                 <CreateGigsCsv />
               </th>
-            </tr>
-            <tr>
-              <th>#</th>
+            </tr> */}
+            <tr className="justify-content-center">
+              {/* <th>#</th> */}
               <th>Date</th>
               <th>Profit</th>
-              <th>Band </th>
-              <th>Edit gig </th>
-              <th>Delete gig</th>
+              <th>Band</th>
+              <th>Edit</th>
+              <th>Delete</th>
             </tr>
           </thead>
           <tbody>

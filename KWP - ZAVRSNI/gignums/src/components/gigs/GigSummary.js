@@ -65,8 +65,8 @@ class GigSummary extends Component {
   render() {
     let { date, profit, band, i, edit } = this.state;
     return edit ? (
-      <tr className="">
-        <td>{i + 1}</td>
+      <tr className="justify-content-center">
+        {/* <td>{i + 1}</td> */}
         <td className="no-padding ">
           <div className="form-group  p-0 m-0">
             <input
@@ -106,10 +106,10 @@ class GigSummary extends Component {
         </td>
       </tr>
     ) : (
-      <tr>
-        <td>{i + 1}</td>
-        <td>{new Date(this.state.date).toLocaleDateString()} </td>
-        <td>{profit} kn</td>
+      <tr className="justify-content-center">
+        {/* <td>{i + 1}</td> */}
+        <td> {new Date(this.state.date).toLocaleDateString()} </td>
+        <td>{profit}</td>
         <td>{band}</td>
         <td>
           <FontAwesomeIcon icon={faEdit} onClick={this.handleEdit} />

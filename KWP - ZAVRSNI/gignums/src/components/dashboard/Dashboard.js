@@ -77,26 +77,3 @@ const mapStateToProps = state => {
 };
 
 export default connect(mapStateToProps)(Dashboard);
-
-// const mapStateToProps = state => {
-//   return {
-//     gigs: state.firestore.ordered,
-//     auth: state.firebase.auth
-//   };
-// };
-
-// export default compose(
-//   connect(mapStateToProps),
-//   firestoreConnect(props => {
-//     if (!props.auth.uid) return [];
-//     else {
-//       return [
-//         {
-//           collection: "gigs",
-//           where: ["authorId", "==", props.auth.uid],
-//           orderBy: ["date", "desc"]
-//         }
-//       ];
-//     }
-//   })
-// )(Dashboard);

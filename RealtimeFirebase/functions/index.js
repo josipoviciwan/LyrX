@@ -7,7 +7,13 @@ var Parser = require("node-html-parser");
 const functions = require("firebase-functions");
 var firebase = require("firebase");
 const firebaseConfig = {
-  secret: "db info",
+  apiKey: "AIzaSyBoTxoYqKOpLd4CBzxau1G8tHvQOlF9kGY",
+  authDomain: "lyrx-app.firebaseapp.com",
+  databaseURL: "https://lyrx-app.firebaseio.com",
+  projectId: "lyrx-app",
+  storageBucket: "lyrx-app.appspot.com",
+  messagingSenderId: "104087623318",
+  appId: "1:104087623318:web:e69d843653905449"
 };
 firebase.initializeApp(firebaseConfig);
 
@@ -31,7 +37,7 @@ new Crawler().configure({ depth: 2 }).crawl(
       tekstList = root.querySelectorAll(".lyric");
 
       if (tekstList.length) {
-        tekstList = tekstList.map((node) => {
+        tekstList = tekstList.map(node => {
           return node.text;
         });
         var tekst = tekstList.join("");
@@ -46,7 +52,7 @@ new Crawler().configure({ depth: 2 }).crawl(
         .set({
           author,
           song,
-          tekst,
+          tekst
         });
     }
   },
